@@ -80,7 +80,10 @@
     const title = searchParams.get('title') || '퇴근'
 
     document.querySelector('.box .title').textContent = `${title}까지`
-    document.querySelector('head title').textContent = `${title}했음?`
+
+    setTimeout(() => {
+      document.querySelector('head title').textContent = `${title}했음?`  
+    }, 100)
 
     const pretyNumber = (value) => value < 10 ? `0${value}` : value
     const date = dayjs(searchParams.get('end') || dayjs())
