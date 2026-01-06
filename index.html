@@ -61,7 +61,7 @@
 </head>
 <body>
   <div class="box">
-    <p>퇴근까지</p>
+    <p class="title"></p>
     <p class="timer">
       <span id="days"></span>
       :
@@ -77,6 +77,9 @@
     dayjs.locale('ko-kr')
     
     const searchParams = new URLSearchParams(document.location.search)
+    const title = searchParams.get('title') || '퇴근'
+
+    document.querySelector('.box .title').textContent = `${title}까지`
 
     const pretyNumber = (value) => value < 10 ? `0${value}` : value
     const date = dayjs(searchParams.get('end') || dayjs())
